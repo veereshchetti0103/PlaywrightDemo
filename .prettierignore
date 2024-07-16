@@ -1,0 +1,42 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build directories
+build/
+dist/
+
+# Ignore Playwright test results
+test-results/
+
+# Ignore Playwright trace files
+trace/
+
+# Ignore other common directories
+coverage/
+output/
+
+# Ignore environment files
+.env.test
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore all minified files
+*.min.js
+*.min.css
+
+# Ignore other files
+*.snap
+*.lock
+*.cache
+.DS_Store
+.idea/
+.vscode/
+
+# Ignore Prettier configuration file
+.prettierrc
+
+# Ignore files that should not be formatted
+package-lock.json
+yarn.lock

@@ -1,0 +1,27 @@
+{
+  "name": "UI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "e2e:test": "env-cmd -f ./env-vars/.env.test playwright test",
+    "format-fix": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "@playwright/test": "^1.45.2",
+    "@types/node": "^20.14.10",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.8.0",
+    "playwright": "^1.45.2",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.1"
+  },
+  "dependencies": {
+    "env-cmd": "^10.1.0",
+    "node": "^18.20.4"
+  }
+}
