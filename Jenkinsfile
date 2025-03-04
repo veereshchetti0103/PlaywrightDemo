@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs "NodeJS" // Use the Node.js version configured in Jenkins
+    }
+
     stages {
         stage('Checkout') {
             steps {
