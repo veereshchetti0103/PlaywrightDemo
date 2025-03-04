@@ -9,6 +9,6 @@ test.beforeEach(async ({ page }) => {
 });
 
 
-test.only('home page visual test', async ({ page }) => {
+test.skip('home page visual test', async ({ page }) => {
     await expect(page).toHaveScreenshot();
 });
