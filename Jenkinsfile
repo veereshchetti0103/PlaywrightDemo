@@ -20,14 +20,8 @@ pipeline {
 
         stage('Run Playwright Tests in Docker') {
             steps {
-                sh '''
-                docker run --rm \
-                  -v $(pwd):/app \
-                  -w /app \
-                  --shm-size=2gb \
-                  mcr.microsoft.com/playwright:focal \
-                  npm run e2e:test
-                '''
+                sh 'npx playwright install --with-deps'  // Ensure browsers are installed
+                sh 'npm run e2e:test'
             }
         }
     }
