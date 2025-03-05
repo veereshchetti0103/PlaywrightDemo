@@ -1,10 +1,13 @@
 pipeline {
-    agent any  // Change this if not using Docker as an agent
+    agent any  // Uses any available agent
     stages {
-        stage('Build') {
+        stage('Build and Test') {
             steps {
                 script {
-                    docker.image('mcr.microsoft.com/playwright:v1.40.0').inside {
+                    // Ensure Docker is correctly used
+                    def playwrightImage = docker.image('mcr.microsoft.com/playwright:v1.40.0')
+                    playwrightImage.pull()  // Pull latest image
+                    playwrightImage.inside {
                         sh 'npm install'
                         sh 'npx playwright e2e:test'
                     }
