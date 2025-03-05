@@ -1,24 +1,14 @@
 pipeline {
-    agent {
-        docker {
-            image 'mcr.microsoft.com/playwright:focal' // Official Playwright image
-            args '--user root'  // Run as root to avoid permission issues
-        }
-    }
+    agent any  // Change this if not using Docker as an agent
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                git 'https://github.com/veereshchetti0103/PlaywrightDemo.git'
-            }
-        }
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
-            }
-        }
-        stage('Run Tests') {
-            steps {
-                sh 'npx run e2e:test'
+                script {
+                    docker.image('mcr.microsoft.com/playwright:v1.40.0').inside {
+                        sh 'npm install'
+                        sh 'npx playwright e2e:test'
+                    }
+                }
             }
         }
     }
